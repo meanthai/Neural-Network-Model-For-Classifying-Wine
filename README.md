@@ -3,7 +3,7 @@ A built-from-scratch Neural Network model by Hoang Minh Thai for classifying 3 d
 
 The given dataset contains approximately 180 examples with each one having 13 features.
 
-The model built has 3 hidden layers and each layer has approximately 20 neurons (due to the characteristics of the dataset) for efficient classifying task.
+The built-from-scratch model has 3 hidden layers and each layer has approximately 20 neurons (due to the characteristics of the dataset) for efficient classifying task.
 
 Furthermore, PCA and other data pre-processing methods such as utilizing Pandas library to reformat the dataset are also applied in the source code to pre-process data.
 
