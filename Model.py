@@ -36,14 +36,14 @@ def PCA(X , num_components):
      
     return X_reduced
 
-
+# Applying one-hot Encoding to transform the categories into categorical binary vectors suitable for machine learning
 def one_hot_encode(labels, num_classes):
     encoded_labels = np.zeros((len(labels), num_classes))
     for i, label in enumerate(labels):
         encoded_labels[i, label] = 1
     return encoded_labels  
       
-
+# Decoding categorical binary vectors back to the original labels
 def one_hot_decode(y):
     return np.argmax(y, axis = 1)
 
@@ -55,7 +55,7 @@ def relu(value):
 def relu_derivative(value):
     return np.where(value > 0, 1, 0)
 
-
+# Calculating the cost of the model using the cross_entrophy formula
 def cross_entropy(y_pred, y_true):
     # Avoid numerical errors by adding a very small value to probabilities
     eps = 1e-15
@@ -93,7 +93,7 @@ class MLP:
     
     def fit(self, X, y):
         for epoch in range(self.epochs):
-            # Feedforward algorithm using ReLU
+            # feedforward algorithm
             layer1 = X.dot(self.weights1) + self.bias1
             activation1 = relu(layer1)
             layer2 = activation1.dot(self.weights2) + self.bias2
@@ -104,7 +104,7 @@ class MLP:
             activation4 = relu(layer4)
             
             
-            # backpropagation using ReLU
+            # backpropagation
             error = activation4 - y
             d_weights4 = activation3.T.dot(error * relu_derivative(layer4))
             d_bias4 = np.sum(error * relu_derivative(layer4), axis = 0, keepdims = True)
@@ -164,7 +164,7 @@ url = "https://gist.githubusercontent.com/tijptjik/9408623/raw/b237fa5848349a14a
 data = pd.read_csv(url)
 
 # Slice the dataset to get one array for features only and one for categories
-data_value = shuffle(data.values) #shuffle the dataset to avoid model learning the pattern-dependency
+data_value = shuffle(data.values)
 X = np.array(data_value[:, 1:])
 y = np.array(data_value[:, 0], dtype = int) - 1
 
@@ -173,7 +173,7 @@ y_one_hot = one_hot_encode(y.flatten(), num_classes=3)
 
 # Take features accounting for most variance out of all using PCA (to reduce dimensionality)
 num_classes = 3
-num_features = 8 #number of features kept
+num_features = 8
 X = PCA(X, num_features)
 
 # initialize the input size, hidden size, and output size and train the model
