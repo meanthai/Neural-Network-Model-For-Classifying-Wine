@@ -9,5 +9,8 @@ Furthermore, PCA and other data pre-processing methods such as utilizing Pandas 
 
 The chosen learning rate and number of epochs could be adjusted.
 
-The result after training: The model achieving a nearly absolute accuracy with more than 98,3%.
-![image](https://github.com/meanthai/Neural-Network-Model-For-Wine-Classifying-Task/assets/147926426/bbb02e54-0992-482b-98f3-5c26a2c80f03)
+The result after training: 
+
+The model achieving a nearly absolute accuracy with more than 98,5% for the training set and approximately 97,2% for the testing one.
+![image](https://github.com/meanthai/Neural-Network-Model-For-Wine-Classifying-Task/assets/147926426/2f7eed98-3608-435a-918e-d29ef5329493)
+
