@@ -3,7 +3,7 @@ A built-from-scratch Neural Network model by Hoang Minh Thai for classifying 3 d
 
 The model built has 3 hidden layers and each layer has approximately 20 neurons (due to the characteristics of the dataset) for efficient classifying task.
 
-Furthermore, PCA and other data pre-processing methods are also applied in the source code to pre-process data.
+Furthermore, PCA and other data pre-processing methods such as utilizing Pandas library to reformat the dataset are also applied in the source code to pre-process data.
 
 The result after training:
 ![image](https://github.com/meanthai/Neural-Network-Model-For-Wine-Classifying-Task/assets/147926426/bbb02e54-0992-482b-98f3-5c26a2c80f03)
