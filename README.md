@@ -5,5 +5,7 @@ The model built has 3 hidden layers and each layer has approximately 20 neurons 
 
 Furthermore, PCA and other data pre-processing methods such as utilizing Pandas library to reformat the dataset are also applied in the source code to pre-process data.
 
-The result after training: The model achieving a nearly absolute accuracy with more than 98%
+The chosen learning rate and number of epochs could be adjusted.
+
+The result after training: The model achieving a nearly absolute accuracy with more than 98,3%.
 ![image](https://github.com/meanthai/Neural-Network-Model-For-Wine-Classifying-Task/assets/147926426/bbb02e54-0992-482b-98f3-5c26a2c80f03)
