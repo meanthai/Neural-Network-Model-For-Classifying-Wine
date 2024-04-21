@@ -152,7 +152,7 @@ class MLP:
         activation3 = relu(layer3)
         layer4 = activation3.dot(self.weights4) + self.bias4
         
-        #Softmax function
+        # Softmax function for probability calculation
         exp_scores = np.exp(layer4)
         probs = exp_scores / (np.sum(exp_scores, axis=1, keepdims=True) + 1e-15)
         # Return the class with the highest probability for each sample
