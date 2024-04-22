@@ -39,6 +39,12 @@ def PCA(X , num_components):
     return X_reduced
 
 
+def xavier_init(input_size, output_size):
+    """Xavier initialization for weights"""
+    limit = np.sqrt(6 / (input_size + output_size))
+    return np.random.uniform(-limit, limit, size=(input_size, output_size))
+
+
 # Applying one-hot Encoding to transform the categories into categorical binary vectors suitable for machine learning
 def one_hot_encode(labels, num_classes):
     encoded_labels = np.zeros((len(labels), num_classes))
@@ -92,11 +98,11 @@ class MLP:
         self.learning_rate = learning_rate
         self.epochs = epochs
         
-        # initialize weights randomly
-        self.weights1 = np.random.randn(self.input_size, self.hidden_size1)
-        self.weights2 = np.random.randn(self.hidden_size1, self.hidden_size2)
-        self.weights3 = np.random.randn(self.hidden_size2, self.hidden_size3)
-        self.weights4 = np.random.randn(self.hidden_size3, self.output_size)
+        # initialize weights using Xavier Weight Initialization
+        self.weights1 = xavier_init(self.input_size, self.hidden_size1)
+        self.weights2 = xavier_init(self.hidden_size1, self.hidden_size2)
+        self.weights3 = xavier_init(self.hidden_size2, self.hidden_size3)
+        self.weights4 = xavier_init(self.hidden_size3, self.output_size)
         
         # initialize biases to 0
         self.bias1 = np.zeros((1, self.hidden_size1))
