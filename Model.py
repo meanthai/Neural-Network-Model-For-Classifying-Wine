@@ -88,9 +88,9 @@ def shuffle(arr):
 
 
 class MLP:
-    def __init__(self, input_size, hidden_size1, hidden_size2, hidden_size3, output_size, batch, learning_rate=0.1, epochs = 6500):
+    def __init__(self, input_size, hidden_size, output_size, batch, learning_rate, epochs):
         self.input_size = input_size
-        self.hidden_size1 = hidden_size1
+        self.hidden_size1, self.hidden_size2, self.hidden_size3 = hidden_size
         self.hidden_size2 = hidden_size2
         self.hidden_size3 = hidden_size3
         self.output_size = output_size
@@ -201,7 +201,7 @@ y_test_encoded = one_hot_encode(y_test, num_classes)
 
 # Define and train the model
 batch_size = 10
-mlp = MLP(input_size=X.shape[1], hidden_size1=10, hidden_size2=10, hidden_size3=10, output_size=num_classes, batch = batch_size)
+mlp = MLP(input_size=X.shape[1], hidden_size=(10, 10, 10), output_size=num_classes, batch = batch_size)
 mlp.fit(X_train, y_train_encoded)
 
 # Prediction and evaluation
