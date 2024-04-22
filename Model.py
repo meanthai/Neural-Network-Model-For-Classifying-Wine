@@ -38,9 +38,8 @@ def PCA(X , num_components):
      
     return X_reduced
 
-
+# Applying Xavier Weight Initilization to avoid vanishing gradient or exploding gradient
 def xavier_init(input_size, output_size):
-    """Xavier initialization for weights"""
     limit = np.sqrt(6 / (input_size + output_size))
     return np.random.uniform(-limit, limit, size=(input_size, output_size))
 
