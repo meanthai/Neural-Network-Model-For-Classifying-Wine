@@ -8,11 +8,10 @@ from sklearn.model_selection import train_test_split
 
 np.random.seed(2)
 
-# PCA step by step explaination by Fredtou
+# PCA step by step explaination by me for each step
 def PCA(X , num_components):
     #Step-1: Apply normalization method
-    # Scaling data using Z-score normalization
-    scaler = StandardScaler()
+    scaler = StandardScaler() # Scaling data using Z-score normalization
     X_meaned = scaler.fit_transform(X)
     
     #Step-2: Creating covariance matrix
@@ -33,18 +32,18 @@ def PCA(X , num_components):
     #Step-5: Extracting the final dataset after applying dimensionality reduction
     eigenvector_subset = sorted_eigenvectors[:, : num_components]
      
-    #Step-6:Transforming
+    #Step-6: Transforming
     X_reduced = np.dot(eigenvector_subset.transpose() , X_meaned.transpose() ).transpose()
      
     return X_reduced
+
 
 # Applying Xavier Weight Initilization to avoid vanishing gradient or exploding gradient
 def xavier_init(input_size, output_size):
     limit = np.sqrt(6 / (input_size + output_size))
     return np.random.uniform(-limit, limit, size=(input_size, output_size))
 
-
-# Applying one-hot Encoding to transform the categories into categorical binary vectors suitable for machine learning
+# Applying one-hot Encoding to transform the categories into categorical binary vectors suitable for machine learning classification task
 def one_hot_encode(labels, num_classes):
     encoded_labels = np.zeros((len(labels), num_classes))
     for i, label in enumerate(labels):
